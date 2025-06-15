@@ -1,0 +1,18 @@
+/**
+ * Frontend styles
+ * Import tailwind base
+ */
+@use "../scss/frontend/tailwind-base.scss";
+
+.wp-plugin-starter-frontend {
+    .dk-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .dk-section {
+        padding: 60px 0;
+    }
+}

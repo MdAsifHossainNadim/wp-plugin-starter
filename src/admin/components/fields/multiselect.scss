@@ -1,0 +1,30 @@
+/**
+ * MultiSelect field styles
+ */
+.wp-plugin-starter-multiselect-field {
+    // Set a minimum height for the control
+    .components-custom-select-control__button {
+        min-height: 40px;
+    }
+
+    // Add some spacing between selected items
+    .components-custom-select-control__item {
+        margin-bottom: 4px;
+    }
+
+    // Style for the dropdown menu
+    .components-custom-select-control__menu {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    // Add a hint about multiple selection
+    .components-base-control__help {
+
+        &::after {
+            font-style: italic;
+            color: #757575;
+            content: " (Click to select multiple options)";
+        }
+    }
+}

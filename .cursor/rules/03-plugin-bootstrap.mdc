@@ -1,0 +1,38 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Plugin Bootstrap Process
+
+Dokan Kits follows a structured bootstrap process to initialize the plugin components.
+
+## Initialization Flow
+
+1. [wp-plugin-starter.php](mdc:wp-plugin-starter.php): Defines constants, loads autoloader, and calls `dokan_kits()->init()`
+2. [class-wp-plugin-starter.php](mdc:class-wp-plugin-starter.php): Main plugin class with `init()` method that registers hooks
+3. [includes/Core/Bootstrap.php](mdc:includes/Core/Bootstrap.php): Handles the actual bootstrapping of components
+
+## Bootstrap Sequence
+
+The bootstrap process follows this sequence:
+
+1. **Core Services**: Initializes foundational services
+2. **Admin Components**: Loads admin-specific functionality when in admin area
+3. **Frontend Components**: Loads frontend components when not in admin
+4. **REST API**: Registers REST controllers and routes
+5. **Features**: Initializes enabled features
+6. **Settings**: Sets up the settings framework
+7. **Migrations**: Runs any pending database migrations
+
+## Key Hooks
+
+The bootstrap process provides several action hooks for extending functionality:
+
+- `dokan_kits_before_bootstrap`: Before any components are bootstrapped
+- `dokan_kits_bootstrap`: After all components are bootstrapped
+- `dokan_kits_after_admin_bootstrap`: After admin components are bootstrapped
+- `dokan_kits_after_frontend_bootstrap`: After frontend components are bootstrapped
+- `dokan_kits_after_rest_bootstrap`: After REST API is bootstrapped
+- `dokan_kits_after_features_bootstrap`: After features are bootstrapped
+- `dokan_kits_loaded`: When the plugin is fully loaded

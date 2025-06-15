@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Import admin variables and mixins
+//@import "./_variables.scss";
+//@import "./_mixins.scss";
+//@import "./_global.scss";
+
+// Scoped to admin pages
+.wp-plugin-starter-admin-page {
+  @apply dk-font-sans;
+
+  // Reset some WordPress styles that might interfere
+  * {
+    @apply dk-box-border;
+  }
+
+  // Add custom component classes
+  .dk-admin-card {
+    @apply dk-bg-white dk-rounded-md dk-shadow-wp-card dk-p-wp-4;
+  }
+
+  .dk-admin-button {
+    @apply dk-inline-flex dk-items-center dk-px-wp-4 dk-py-wp-2 dk-bg-primary-600 dk-text-white dk-rounded-md dk-font-medium hover:dk-bg-primary-700 focus:dk-outline-none focus:dk-ring-2 focus:dk-ring-offset-2 focus:dk-ring-primary-500 dk-shadow-[0_2px_4px_rgba(79,70,229,0.15)] hover:dk-shadow-[0_4px_6px_rgba(79,70,229,0.2)] #{!important};
+
+    &.dk-admin-button-secondary {
+      @apply dk-bg-white dk-text-gray-700 dk-border dk-border-solid dk-border-gray-300 hover:dk-bg-gray-50 dk-shadow-[0_2px_4px_rgba(0,0,0,0.05)] hover:dk-shadow-[0_4px_6px_rgba(0,0,0,0.07)] #{!important};
+    }
+
+    &.dk-admin-button-danger {
+      @apply dk-bg-red-600 dk-text-white hover:dk-bg-red-700 focus:dk-ring-red-500 dk-shadow-[0_2px_4px_rgba(220,38,38,0.15)] hover:dk-shadow-[0_4px_6px_rgba(220,38,38,0.2)] #{!important};
+    }
+
+    &.dk-admin-button-link {
+      @apply dk-text-primary-600 dk-underline hover:dk-text-primary-700 dk-shadow-none #{!important};
+    }
+
+    &.dk-admin-button-disabled {
+      @apply dk-bg-gray-200 dk-text-gray-400 dk-cursor-not-allowed dk-shadow-[0_1px_2px_rgba(0,0,0,0.05)] #{!important};
+    }
+
+    &.dk-admin-button-warning {
+      @apply dk-bg-yellow-500 dk-text-white hover:dk-bg-yellow-600 focus:dk-ring-yellow-500 dk-shadow-[0_2px_4px_rgba(245,158,11,0.15)] hover:dk-shadow-[0_4px_6px_rgba(245,158,11,0.2)] #{!important};
+    }
+
+    &.dk-admin-button-success {
+      @apply dk-bg-green-500 dk-text-white hover:dk-bg-green-600 focus:dk-ring-green-500 dk-shadow-[0_2px_4px_rgba(16,185,129,0.15)] hover:dk-shadow-[0_4px_6px_rgba(16,185,129,0.2)] #{!important};
+    }
+
+    &.dk-admin-button-info {
+      @apply dk-bg-blue-500 dk-text-white hover:dk-bg-blue-600 focus:dk-ring-blue-500 dk-shadow-[0_2px_4px_rgba(59,130,246,0.15)] hover:dk-shadow-[0_4px_6px_rgba(59,130,246,0.2)] #{!important};
+    }
+  }
+
+  .dk-admin-input {
+    @apply dk-block dk-w-full dk-rounded-md dk-border-gray-100 dk-shadow-sm focus:dk-border-primary-500 focus:dk-ring-primary-500 #{!important};
+  }
+}
+
+@layer components {
+ // define custom components here
+}
+
+@layer utilities {
+
+  .dk-reset {
+    all: revert-layer;
+  }
+}

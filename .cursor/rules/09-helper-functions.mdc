@@ -1,0 +1,70 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Helper Functions
+
+Dokan Kits provides a collection of helper functions for common tasks.
+
+## Main Helper File
+
+- [includes/functions.php](mdc:includes/functions.php): Contains all helper functions
+
+## Container and Services
+
+```php
+// Get the container
+$container = dokan_kits_get_container();
+
+// Get a service
+$service = dokan_kits_service('service-id');
+```
+
+## Settings Management
+
+```php
+// Get a setting
+$setting = dokan_kits_get_setting('setting-name');
+
+// Get a setting value
+$value = dokan_kits_get_setting_value('setting-name', 'key', 'default-value');
+
+// Update a setting
+dokan_kits_update_setting('setting-name', 'value', 'new-value');
+
+// Delete a setting
+dokan_kits_delete_setting('setting-name');
+```
+
+## Templates
+
+```php
+// Get a template part
+dokan_kits_get_template_part('template-slug', 'part-name', [
+    'var1' => 'value1',
+    'var2' => 'value2',
+]);
+
+// Get a template
+dokan_kits_get_template('template-name', [
+    'var1' => 'value1',
+    'var2' => 'value2',
+]);
+
+// Get the template manager
+$template_manager = dokan_kits_template_manager();
+```
+
+## Utilities
+
+```php
+// Check if Dokan is active
+$is_active = dokan_kits_is_dokan_active();
+
+// Check if Dokan Pro is active
+$is_pro = dokan_kits_is_dokan_pro_active();
+
+// Logger
+dokan_kits_logger()->info('Log message', ['context' => 'value']);
+```

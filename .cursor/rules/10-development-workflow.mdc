@@ -1,0 +1,52 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Development Workflow
+
+Dokan Kits uses a modern development workflow with tools for code quality, testing, and building.
+
+## PHP Development
+
+### Composer Commands
+
+- `composer install`: Install dependencies
+- `composer phpcs`: Run PHP CodeSniffer
+- `composer phpcbf`: Fix coding standards automatically
+- `composer phpstan`: Run static analysis
+- `composer test`: Run PHPUnit tests
+
+### PHP Testing
+
+- [tests/php/](mdc:tests/php): PHPUnit tests
+- [phpunit.xml.dist](mdc:phpunit.xml.dist): PHPUnit configuration
+
+## JavaScript/TypeScript Development
+
+### NPM/Yarn Commands
+
+- `yarn start`: Start development server
+- `yarn build`: Build production assets
+- `yarn lint:js`: Lint JavaScript/TypeScript
+- `yarn lint:css`: Lint CSS/SCSS
+- `yarn format`: Format code with Prettier
+
+### Build Configuration
+
+- [webpack.config.js](mdc:webpack.config.js): Webpack configuration
+- [.eslintrc.js](mdc:.eslintrc.js): ESLint configuration
+- [.stylelintrc.js](mdc:.stylelintrc.js): Stylelint configuration
+- [tailwind.config.js](mdc:tailwind.config.js): Tailwind CSS configuration
+
+## Git Workflow
+
+- Feature branches: `feature/feature-name`
+- Bug fixes: `fix/bug-name`
+- Releases: `release/version`
+
+## Coding Standards
+
+- PHP: WordPress Coding Standards with some customizations
+- JavaScript: WordPress JavaScript coding standards
+- CSS/SCSS: WordPress CSS coding standards

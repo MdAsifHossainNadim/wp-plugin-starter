@@ -1,0 +1,41 @@
+/**
+ * Code field styles
+ */
+
+.wp-plugin-starter-code-field {
+    margin-bottom: 16px;
+
+    .wp-plugin-starter-code-field-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+    .wp-plugin-starter-code-editor {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+
+        .wp-plugin-starter-code-textarea {
+            width: 100%;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: vertical;
+            background-color: #f5f5f5;
+            border: none;
+            border-radius: 4px;
+
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 1px #007cba;
+            }
+        }
+    }
+
+    .wp-plugin-starter-code-field-description {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #757575;
+    }
+}

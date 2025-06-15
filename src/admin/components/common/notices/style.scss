@@ -1,0 +1,67 @@
+/**
+ * Notices styles
+ * Match the WordPress admin notices style
+ */
+
+.wp-plugin-starter-notices {
+    margin-bottom: 20px;
+
+    .notice {
+        position: relative;
+        padding: 1px 12px;
+        margin: 5px 0 15px;
+        background: #fff;
+        border-left: 4px solid #72aee6;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+
+        p {
+            padding: 2px;
+            margin: 0.5em 0;
+        }
+
+        &.notice-success {
+            border-left-color: #46b450;
+        }
+
+        &.notice-error {
+            border-left-color: #dc3232;
+        }
+
+        &.notice-warning {
+            border-left-color: #ffb900;
+        }
+
+        &.notice-info {
+            border-left-color: #00a0d2;
+        }
+
+        .notice-dismiss {
+            position: absolute;
+            top: 0;
+            right: 1px;
+            padding: 9px;
+            margin: 0;
+            color: #787c82;
+            cursor: pointer;
+            background: none;
+            border: none;
+
+            &:hover {
+                color: #d63638;
+            }
+
+            &::before {
+                display: block;
+                width: 20px;
+                height: 20px;
+                font: 400 16px/20px dashicons;
+                text-align: center;
+                content: "\f153";
+                background: none;
+                speak: never;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+    }
+}

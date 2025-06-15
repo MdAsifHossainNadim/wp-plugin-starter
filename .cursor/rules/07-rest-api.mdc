@@ -1,0 +1,57 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# REST API
+
+Dokan Kits implements a REST API for interacting with the plugin's functionality from the frontend or external applications.
+
+## Directory Structure
+
+- [includes/REST/](mdc:includes/REST): Main REST API code
+  - [Controllers/](mdc:includes/REST/Controllers): REST API controllers
+  - [Middleware/](mdc:includes/REST/Middleware): Request middleware
+
+## REST Controllers
+
+REST controllers extend the WordPress `WP_REST_Controller` class:
+
+```php
+namespace Dokan_Kits\REST\Controllers;
+
+use WP_REST_Controller;
+use WP_REST_Request;
+use WP_REST_Response;
+
+class MyController extends WP_REST_Controller {
+    public function register_routes() {
+        register_rest_route('wp-plugin-starter/v1', '/endpoint', [
+            'methods' => 'GET',
+            'callback' => [$this, 'get_items'],
+            'permission_callback' => [$this, 'get_items_permissions_check'],
+        ]);
+    }
+
+    // Controller methods...
+}
+```
+
+## Registration Process
+
+REST controllers are registered through the service provider system:
+
+- [includes/Core/DI/Providers/RestServiceProvider.php](mdc:includes/Core/DI/Providers/RestServiceProvider.php): Registers REST controllers
+- [includes/Core/Bootstrap.php](mdc:includes/Core/Bootstrap.php): Bootstraps REST API in the `boot_rest()` method
+
+## API Namespace
+
+All REST API endpoints use the `wp-plugin-starter/v1` namespace:
+
+```
+/wp-json/wp-plugin-starter/v1/endpoint
+```
+
+## Authentication
+
+The REST API uses WordPress's authentication system. Most endpoints require the user to be logged in with appropriate capabilities.

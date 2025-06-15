@@ -1,0 +1,130 @@
+{
+  "name": "@mdasifhossainadim/wp-plugin-starter",
+  "version": "1.0.0",
+  "description": "WP Plugin Starter is a modern, extensible WordPress plugin boilerplate. It provides a robust foundation for building advanced plugins, featuring modular architecture, React-powered admin, REST API integration, and best practices for WordPress and WooCommerce development. Ideal for both single-site and multi-vendor marketplace enhancements.",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "start:hot": "wp-scripts start --hot",
+    "build": "wp-scripts build",
+    "format:js": "wp-scripts format-js",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "packages-update": "wp-scripts packages-update",
+    "prebuild": "yarn clean",
+    "clean": "rimraf build",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:all": "yarn lint:js && yarn lint:css",
+    "lint:fix:all": "yarn lint:fix && yarn format",
+    "prepare": "husky install",
+    "makepot": "wp i18n make-pot . languages/wp-plugin-starter.pot --exclude=node_modules,vendor,drafts,docs,build,release,tests",
+    "zip": "cross-env PLUGIN_VERSION=$(node -p \"require('./package.json').version\") bash ./bin/release.sh",
+    "release": "yarn build && yarn makepot && yarn zip"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MdAsifHossainNadim/wp-plugin-starter.git"
+  },
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "boilerplate",
+    "woocommerce",
+    "react",
+    "rest-api",
+    "admin",
+    "modular",
+    "marketplace"
+  ],
+  "author": "WP Integrity",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/MdAsifHossainNadim/wp-plugin-starter/issues"
+  },
+  "homepage": "https://github.com/MdAsifHossainNadim/wp-plugin-starter#readme",
+  "devDependencies": {
+    "@babel/core": "^7.27.1",
+    "@babel/eslint-parser": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "@playwright/test": "^1.52.0",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/postcss": "^4.1.7",
+    "@tailwindcss/typography": "^0.5.16",
+    "@wordpress/dom-ready": "^4.24.0",
+    "@wordpress/eslint-plugin": "^22.10.0",
+    "@wordpress/html-entities": "^4.24.0",
+    "@wordpress/prettier-config": "^4.24.0",
+    "@wordpress/scripts": "^30.17.0",
+    "@wordpress/stylelint-config": "^23.16.0",
+    "autoprefixer": "^10.4.21",
+    "cross-env": "^7.0.3",
+    "css-loader": "^7.1.2",
+    "cssnano": "^7.0.7",
+    "eslint": "8",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jest": "^28.11.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.0.0",
+    "lucide-react": "^0.511.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss": "^8.5.3",
+    "postcss-import": "^16.1.0",
+    "postcss-loader": "^8.1.1",
+    "prettier": "^3.5.3",
+    "react-router-dom": "^7.6.1",
+    "rimraf": "^6.0.1",
+    "sass": "^1.89.0",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "stylelint": "^16.19.1",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-recess-order": "^6.0.0",
+    "stylelint-config-tailwindcss": "^1.0.0",
+    "stylelint-order": "^7.0.0",
+    "stylelint-scss": "^6.12.0",
+    "tailwindcss": "^3.0.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
+  },
+  "dependencies": {
+    "@wordpress/api-fetch": "^7.24.0",
+    "@wordpress/components": "^29.10.0",
+    "@wordpress/data": "^10.24.0",
+    "@wordpress/element": "^6.24.0",
+    "@wordpress/hooks": "^4.24.0",
+    "@wordpress/i18n": "^5.24.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "tailwind-merge": "^3.3.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{css,scss}": [
+      "prettier --write",
+      "stylelint --fix"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "packageManager": "yarn@4.9.1"
+}

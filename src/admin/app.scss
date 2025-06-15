@@ -1,0 +1,123 @@
+/**
+ * Main styles entry point
+ */
+
+@use '../scss/admin/tailwind-base';
+@use '../scss/admin/wp-components';
+@use '../scss/admin/animations';
+@use '../scss/admin/modal';
+
+/* Import global admin styles */
+//@import '../scss/admin/_global.scss';
+
+/* App specific styles */
+.wp-plugin-starter-app-wrapper {
+  background-color: #f0f0f1; /* WP admin background color */
+}
+
+/* WordPress admin page compatibility */
+#wpbody-content {
+  padding-bottom: 0;
+}
+
+.auto-fold #wpcontent {
+  padding-left: 0;
+}
+
+/* WP Notices Container */
+.wp-plugin-starter-notices {
+  margin-bottom: 1rem;
+}
+
+/* Default transition */
+.dk-transition {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+}
+
+/* Transition effects */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+/* Custom scrollbar for better UX */
+.wp-plugin-starter-admin-page {
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  scrollbar-width: thin;
+}
+
+.wp-plugin-starter-admin-page::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.wp-plugin-starter-admin-page::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.wp-plugin-starter-admin-page::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.wp-plugin-starter-admin-page::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Utility classes */
+.dk-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-width: 0;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* React Router specific styles */
+.dk-route-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.dk-route-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.dk-route-exit {
+  opacity: 1;
+}
+
+.dk-route-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+
+
+body #wpbody-content {
+
+  .notice:empty {
+    display: none;
+  }
+}

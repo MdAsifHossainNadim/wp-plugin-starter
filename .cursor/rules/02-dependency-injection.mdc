@@ -1,0 +1,48 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Dependency Injection System
+
+Dokan Kits uses a dependency injection container based on League Container for managing services and dependencies.
+
+## Core Container Files
+
+- [includes/Core/DI/Container.php](mdc:includes/Core/DI/Container.php): Extended container implementation
+- [includes/Core/DI/Providers/ServiceProvider.php](mdc:includes/Core/DI/Providers/ServiceProvider.php): Main service provider that registers all other providers
+
+## Service Providers
+
+Service providers are responsible for registering services with the container:
+
+- [CoreServiceProvider.php](mdc:includes/Core/DI/Providers/CoreServiceProvider.php): Core services
+- [AdminServiceProvider.php](mdc:includes/Core/DI/Providers/AdminServiceProvider.php): Admin-related services
+- [RestServiceProvider.php](mdc:includes/Core/DI/Providers/RestServiceProvider.php): REST API controllers
+- [FeaturesServiceProvider.php](mdc:includes/Core/DI/Providers/FeaturesServiceProvider.php): Feature classes
+- [DataStoreServiceProvider.php](mdc:includes/Core/DI/Providers/DataStoreServiceProvider.php): Data stores
+
+## Using the Container
+
+To access the container or retrieve services:
+
+```php
+// Get the container
+$container = dokan_kits_get_container();
+
+// Get a service
+$service = dokan_kits_service('service-id');
+
+// Or use the helper function for common services
+$template_manager = dokan_kits_template_manager();
+```
+
+## Adding Custom Services
+
+To extend the container with custom services:
+
+```php
+add_action('dokan_kits_register_service_providers', function($provider) {
+    $provider->getContainer()->addServiceProvider(new MyCustomServiceProvider());
+});
+```

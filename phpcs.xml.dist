@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<ruleset name="WP Plugin Starter">
+    <description>PHPCS configuration for WP Plugin Starter.</description>
+
+    <!-- Include the WordPress Coding Standards -->
+    <rule ref="WordPress-Core"/>
+    <rule ref="WordPress-Docs"/>
+    <rule ref="WordPress-Extra"/>
+
+    <!-- Specify files and directories to check -->
+    <file>./includes</file>
+    <file>./src</file>
+    <file>./class-wp-plugin-starter.php</file>
+    <file>./wp-plugin-starter.php</file>
+    <file>./tests/php</file>
+
+    <!-- Exclude paths -->
+    <exclude-pattern>/vendor/</exclude-pattern>
+    <exclude-pattern>/node_modules/</exclude-pattern>
+    <exclude-pattern>/assets/</exclude-pattern>
+    <exclude-pattern>/bin/</exclude-pattern>
+    <exclude-pattern>/dependencies/</exclude-pattern>
+    <exclude-pattern>/docs/</exclude-pattern>
+    <exclude-pattern>/drafts/</exclude-pattern>
+    <exclude-pattern>/build/</exclude-pattern>
+    <exclude-pattern>/release/</exclude-pattern>
+
+    <!-- Add PHP Compatibility checks for PHP 7.4+ -->
+    <config name="testVersion" value="7.4-"/>
+    <rule ref="PHPCompatibility"/>
+
+    <!-- Configure WordPress-Core specific rules -->
+    <rule ref="WordPress.Files.FileName">
+        <properties>
+            <property name="strict_class_file_names" value="false"/>
+        </properties>
+    </rule>
+
+    <!-- Allow and enforce short array syntax -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+    <!-- Allow type declarations -->
+    <rule ref="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.TypeHintMissing">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Squiz.Arrays.ArrayDeclaration.NoKeySpecified">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Universal.NamingConventions.NoReservedKeywordParameterNames.defaultFound">
+        <severity>0</severity>
+    </rule>
+
+    <!-- Configure I18n (Text Domain) -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="wp-plugin-starter"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Global Namespaces -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="wp_plugin_starter"/>
+                <element value="WP_Plugin_Starter"/>
+                <element value="WPPluginStarter"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Configure escaping functions -->
+    <rule ref="WordPress.Security.EscapeOutput">
+        <properties>
+            <property name="customEscapingFunctions" type="array">
+                <element value="wp_kses_post"/>
+                <element value="wp_kses_data"/>
+                <element value="wp_kses_allowed_html"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Show progress -->
+    <arg value="p"/>
+    <!-- Show sniff codes in reports -->
+    <arg value="s"/>
+
+    <!-- Set the memory limit to 256M. Adjust this value if you encounter memory limit issues. -->
+    <ini name="memory_limit" value="256M"/>
+</ruleset>

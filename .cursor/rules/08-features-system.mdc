@@ -1,0 +1,69 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Features System
+
+Dokan Kits implements a modular features system that allows for enabling/disabling specific functionality.
+
+## Directory Structure
+
+- [includes/Features/](mdc:includes/Features): Main features code
+  - [Cart/](mdc:includes/Features/Cart): Cart-related features
+  - [Order/](mdc:includes/Features/Order): Order-related features
+  - [Product/](mdc:includes/Features/Product): Product-related features
+  - [Shipping/](mdc:includes/Features/Shipping): Shipping-related features
+  - [Vendor/](mdc:includes/Features/Vendor): Vendor-related features
+
+## Feature Implementation
+
+Each feature extends the AbstractFeature class and implements the FeatureInterface:
+
+```php
+namespace Dokan_Kits\Features\MyFeature;
+
+use Dokan_Kits\Features\AbstractFeature;
+
+class MyFeature extends AbstractFeature {
+    protected string $name = 'My Feature';
+    protected string $description = 'Description of my feature';
+    protected string $option_key = 'my_feature_option_key';
+
+    public function register_hooks(): void {
+        // Register hooks for this feature
+        add_action('init', [$this, 'init']);
+    }
+
+    public function init(): void {
+        // Feature initialization code
+    }
+}
+```
+
+## Feature Registration
+
+Features are registered through the FeaturesServiceProvider:
+
+- [includes/Core/DI/Providers/FeaturesServiceProvider.php](mdc:includes/Core/DI/Providers/FeaturesServiceProvider.php): Registers features
+
+## Feature Status
+
+Features can be enabled or disabled through the admin dashboard:
+
+- [includes/Admin/Dashboard/Pages/Features.php](mdc:includes/Admin/Dashboard/Pages/Features.php): Admin UI for managing features
+
+Each feature implements an `is_enabled()` method that determines if the feature is active:
+
+```php
+public function is_enabled(): bool {
+    // If option key is empty, feature is considered always enabled
+    if (empty($this->option_key)) {
+        return apply_filters('dokan_kits_feature_' . $this->get_slug() . '_enabled', true, $this);
+    }
+
+    $enabled = get_option($this->option_key, false) === '1';
+
+    return apply_filters('dokan_kits_feature_' . $this->get_slug() . '_enabled', $enabled, $this);
+}
+```

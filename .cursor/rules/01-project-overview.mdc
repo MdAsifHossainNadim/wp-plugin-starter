@@ -1,0 +1,37 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Dokan Kits Project Overview
+
+Dokan Kits is a feature-packed add-on designed to streamline and enhance the functionality of Dokan-powered multi-vendor marketplaces.
+
+## Main Entry Points
+
+- [wp-plugin-starter.php](mdc:wp-plugin-starter.php): Plugin bootstrap file that initializes the plugin
+- [class-wp-plugin-starter.php](mdc:class-wp-plugin-starter.php): Main plugin class that handles initialization and bootstrapping
+
+## Core Architecture
+
+The plugin follows a modern architecture with:
+
+- Dependency Injection using League Container
+- PSR-4 autoloading with namespaces
+- Service providers for modular functionality
+- Feature-based organization
+
+## Key Components
+
+- **Core**: Foundation classes and interfaces in [includes/Core/](mdc:includes/Core)
+- **Admin**: Admin dashboard and settings in [includes/Admin/](mdc:includes/Admin)
+- **Features**: Modular features in [includes/Features/](mdc:includes/Features)
+- **REST API**: REST controllers in [includes/REST/](mdc:includes/REST)
+- **Frontend**: Frontend components in [src/frontend/](mdc:src/frontend)
+- **React Admin**: React-based admin UI in [src/admin/](mdc:src/admin)
+
+## Development Tools
+
+- PHP: Composer, PHPUnit, PHPCS, PHPStan
+- JavaScript: React, TypeScript, Webpack, Tailwind CSS
+- Build tools: Yarn, ESLint, Stylelint

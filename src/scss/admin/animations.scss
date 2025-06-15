@@ -1,0 +1,144 @@
+/**
+ * Admin Animations
+ *
+ * This file contains reusable animations and transitions for admin components.
+ */
+
+// Fade transitions
+.dk-fade-transition {
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.dk-fade-enter {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.dk-fade-enter-active,
+.dk-fade-enter-done {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dk-fade-exit {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dk-fade-exit-active,
+.dk-fade-exit-done {
+  visibility: hidden;
+  opacity: 0;
+}
+
+// Slide transitions
+.dk-slide-transition {
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.dk-slide-down-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.dk-slide-down-enter-active,
+.dk-slide-down-enter-done {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dk-slide-down-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dk-slide-down-exit-active,
+.dk-slide-down-exit-done {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+// Scale transitions
+.dk-scale-transition {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.dk-scale-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.dk-scale-enter-active,
+.dk-scale-enter-done {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dk-scale-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dk-scale-exit-active,
+.dk-scale-exit-done {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+// Hover animations
+.dk-hover-scale {
+  transition: transform 0.2s ease-out;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.dk-hover-shadow {
+  transition: box-shadow 0.2s ease-out;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Pulse animation for attention
+@keyframes dk-pulse {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.dk-pulse {
+  animation: dk-pulse 1.5s infinite;
+}
+
+// Shake animation for errors
+@keyframes dk-shake {
+
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.dk-shake {
+  animation: dk-shake 0.8s;
+}

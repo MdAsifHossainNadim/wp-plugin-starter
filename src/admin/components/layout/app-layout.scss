@@ -1,0 +1,109 @@
+/**
+ * Layout component styles
+ */
+
+// Import global styles that might be needed by the layout
+
+// Sidebar transition
+.sidebar-transition {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+// Main content area
+.main-content {
+    // Ensure the content can scroll independently
+    height: calc(100vh - 64px); // 64px is header height
+    overflow-y: auto;
+    transition: padding-left 0.3s ease-in-out;
+}
+
+// Navbar styles
+.wp-plugin-starter-app-header {
+
+    nav a {
+        position: relative;
+        transition: all 0.3s ease;
+
+        &::after {
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            content: '';
+            background: currentcolor;
+            opacity: 0;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+        }
+
+        &:hover::after {
+            width: 60%;
+            opacity: 0.6;
+        }
+
+        &.active::after {
+            width: 100%;
+            background: var(--wp-admin-theme-color, #007cba);
+            opacity: 1;
+        }
+
+        .dashicons {
+            transition: transform 0.2s ease;
+        }
+
+        &:hover .dashicons {
+            transform: translateY(-1px);
+        }
+    }
+}
+
+// Animation for route transitions
+.dk-route-transition {
+    position: relative;
+    min-height: 200px; // Ensure enough space for the loading state
+
+    > * {
+        animation: fadeInSlideUp 0.3s ease-out;
+    }
+}
+
+@keyframes fadeInSlideUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Header animations
+.wp-plugin-starter-app-header {
+    animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Add responsive behavior
+@media (max-width: 768px) {
+    // Mobile specific styles
+    .mobile-sidebar-hidden {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}

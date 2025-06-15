@@ -1,0 +1,50 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Admin Dashboard
+
+Dokan Kits implements a modern React-based admin dashboard for managing plugin settings and features.
+
+## Directory Structure
+
+- [src/admin/](mdc:src/admin): Main admin code
+  - [components/](mdc:src/admin/components): Reusable React components
+  - [context/](mdc:src/admin/context): React context providers
+  - [hooks/](mdc:src/admin/hooks): Custom React hooks
+  - [pages/](mdc:src/admin/pages): Admin page components
+
+## Key Admin Files
+
+- [includes/Admin/Dashboard/Manager.php](mdc:includes/Admin/Dashboard/Manager.php): PHP class that registers admin pages
+- [includes/Admin/Dashboard/Pages/](mdc:includes/Admin/Dashboard/Pages): PHP classes for admin pages
+- [src/admin/pages/dashboard/](mdc:src/admin/pages/dashboard): React components for dashboard pages
+
+## Form Fields
+
+The admin dashboard uses a collection of reusable form field components:
+
+- [src/admin/components/fields/](mdc:src/admin/components/fields): Form field components
+  - Text fields, select boxes, toggles, etc.
+
+## Admin Hooks
+
+The admin dashboard provides several hooks for extending functionality:
+
+```php
+// Add a new admin page
+add_filter('dokan_kits_admin_pages', function($pages) {
+    $pages[] = [
+        'title' => 'My Custom Page',
+        'slug' => 'my-custom-page',
+        'callback' => 'my_custom_page_callback',
+    ];
+    return $pages;
+});
+
+// Add custom admin scripts
+add_action('dokan_kits_admin_enqueue_scripts', function() {
+    wp_enqueue_script('my-custom-script', 'path/to/script.js');
+});
+```

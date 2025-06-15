@@ -1,0 +1,48 @@
+# Directories
+/.cursor
+/.git
+/.github
+/.wordpress-org
+/.yarn
+/assets
+/bin
+/docs
+/drafts
+/node_modules
+/release
+/src
+/tests
+/vendor/bin
+/vendor/composer/installers
+
+# Build files
+/composer.json
+/package.json
+/webpack.config.js
+/tailwind.config.js
+/postcss.config.js
+/tsconfig.json
+/jsconfig.json
+/.babelrc
+/.eslintrc.js
+/.stylelintrc.js
+/.ncurc.json
+/.yarnrc.yml
+/package-lock.json
+/composer.lock
+/yarn.lock
+
+# Development files
+/.editorconfig
+/.gitignore
+/.phpunit.result.cache
+/phpcs.xml.dist
+/phpunit.xml.dist
+/README.md
+/.DS_Store
+/.husky
+
+# Misc
+/.distignore
+/CHANGELOG.md
+/LICENSE

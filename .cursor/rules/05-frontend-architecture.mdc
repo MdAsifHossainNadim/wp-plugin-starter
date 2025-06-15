@@ -1,0 +1,56 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Frontend Architecture
+
+Dokan Kits implements a modern frontend architecture using React, TypeScript, and Tailwind CSS.
+
+## Directory Structure
+
+- [src/frontend/](mdc:src/frontend): Main frontend code
+  - [blocks/](mdc:src/frontend/blocks): Gutenberg blocks
+  - [components/](mdc:src/frontend/components): Reusable React components
+  - [modules/](mdc:src/frontend/modules): Feature-specific modules
+
+- [src/scss/](mdc:src/scss): SCSS styles
+  - [frontend/](mdc:src/scss/frontend): Frontend-specific styles
+  - [shared/](mdc:src/scss/shared): Shared styles
+
+## Build System
+
+The frontend code is built using Webpack with the following configuration:
+
+- [webpack.config.js](mdc:webpack.config.js): Main Webpack configuration
+- [tailwind.config.js](mdc:tailwind.config.js): Tailwind CSS configuration
+- [postcss.config.js](mdc:postcss.config.js): PostCSS configuration
+
+## Key Technologies
+
+- **React**: For building interactive UI components
+- **TypeScript**: For type-safe JavaScript code
+- **Tailwind CSS**: For utility-first styling
+- **WordPress Components**: Integration with WordPress UI components
+
+## Enqueuing Frontend Assets
+
+Frontend assets are enqueued through the WordPress enqueue system:
+
+```php
+// Example of how assets are enqueued
+wp_enqueue_script(
+    'wp-plugin-starter-frontend',
+    DOKAN_KITS_BUILD_URL . '/js/frontend.js',
+    ['wp-element', 'wp-components'],
+    DOKAN_KITS_VERSION,
+    true
+);
+
+wp_enqueue_style(
+    'wp-plugin-starter-frontend',
+    DOKAN_KITS_BUILD_URL . '/css/frontend.css',
+    [],
+    DOKAN_KITS_VERSION
+);
+```

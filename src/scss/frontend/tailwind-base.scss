@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Import frontend variables and mixins
+//@import "./_variables.scss";
+//@import "./_mixins.scss";
+//@import "./_global.scss";
+
+// Scoped to frontend elements
+.wp-plugin-starter-frontend {
+  @apply dk-font-sans;
+
+  // Custom component classes for frontend
+  .dk-card {
+    @apply dk-bg-white dk-rounded-md dk-shadow-md dk-overflow-hidden;
+  }
+
+  .dk-button {
+    @apply dk-inline-flex dk-items-center dk-px-4 dk-py-2 dk-bg-primary-600 dk-text-white dk-rounded-md dk-text-sm dk-font-medium hover:dk-bg-primary-700 focus:dk-outline-none focus:dk-ring-2 focus:dk-ring-offset-2 focus:dk-ring-primary-500;
+
+    &.dk-button-secondary {
+      @apply dk-bg-white dk-text-gray-700 dk-border dk-border-gray-300 hover:dk-bg-gray-50;
+    }
+  }
+}

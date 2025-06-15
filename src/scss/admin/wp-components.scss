@@ -1,0 +1,41 @@
+// WordPress components integration
+.wp-plugin-starter-admin-page {
+  // Style WordPress toggle component
+  .components-form-toggle {
+    @apply dk-relative dk-inline-block dk-h-5 dk-w-10;
+
+    .components-form-toggle__track {
+      @apply dk-bg-gray-300 dk-rounded-full dk-h-5 dk-w-10 dk-transition-colors dk-ease-in-out dk-duration-200;
+    }
+
+    .components-form-toggle__thumb {
+      @apply dk-absolute dk-top-0.5 dk-left-0.5 dk-bg-white dk-rounded-full dk-h-4 dk-w-4 dk-shadow dk-transform dk-transition-transform dk-ease-in-out dk-duration-200;
+    }
+
+    &.is-checked {
+
+      .components-form-toggle__track {
+        @apply dk-bg-primary-600;
+      }
+
+      .components-form-toggle__thumb {
+        @apply dk-transform dk-translate-x-5;
+      }
+    }
+  }
+
+  // Style components panel
+  .components-panel {
+    @apply dk-border dk-border-gray-200 dk-rounded-md dk-overflow-hidden;
+  }
+
+  // Style WordPress buttons
+  .components-button {
+
+    &.is-primary {
+      @apply dk-bg-primary-600 dk-text-white hover:dk-bg-primary-700;
+    }
+  }
+
+  // Style other WordPress components as needed
+}

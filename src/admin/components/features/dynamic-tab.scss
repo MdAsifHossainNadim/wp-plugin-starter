@@ -1,0 +1,16 @@
+.wp-plugin-starter-dynamic-tab {
+
+    .wp-plugin-starter-settings-section {
+        margin-bottom: 24px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.wp-plugin-starter-empty-tab {
+    padding: 32px;
+    color: #757575;
+    text-align: center;
+}

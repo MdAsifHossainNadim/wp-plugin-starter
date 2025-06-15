@@ -1,0 +1,54 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Settings System
+
+Dokan Kits implements a flexible settings system for storing and retrieving plugin configuration.
+
+## Core Settings Files
+
+- [includes/Core/Data/Models/Settings.php](mdc:includes/Core/Data/Models/Settings.php): Settings model class
+- [includes/Core/Data/Stores/SettingsDataStore.php](mdc:includes/Core/Data/Stores/SettingsDataStore.php): Data store for settings
+
+## Helper Functions
+
+The plugin provides several helper functions for working with settings:
+
+```php
+// Get a setting
+$setting = dokan_kits_get_setting('setting-name');
+
+// Get a setting value
+$value = dokan_kits_get_setting_value('setting-name', 'key', 'default-value');
+
+// Update a setting
+dokan_kits_update_setting('setting-name', 'value', 'new-value');
+
+// Update multiple properties
+dokan_kits_update_setting('setting-name', [
+    'key1' => 'value1',
+    'key2' => 'value2',
+]);
+
+// Delete a setting
+dokan_kits_delete_setting('setting-name');
+```
+
+## Settings Structure
+
+Settings are stored as key-value pairs with additional metadata:
+
+- **name**: Unique identifier for the setting
+- **value**: The actual setting value (can be scalar or array)
+- **default**: Default value if not set
+- **created_at**: When the setting was created
+- **updated_at**: When the setting was last updated
+
+## Admin Settings UI
+
+The admin settings interface is built with React and can be found in:
+
+- [src/admin/pages/dashboard/](mdc:src/admin/pages/dashboard): Admin dashboard pages
+- [src/admin/components/fields/](mdc:src/admin/components/fields): Form field components

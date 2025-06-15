@@ -1,0 +1,16 @@
+/**
+ * Editor styles for the Vendor List block
+ */
+
+.wp-block-wp-plugin-starter-vendor-list {
+    border: 1px dashed #ccc;
+    padding: 20px;
+
+    .components-placeholder {
+        min-height: 200px;
+    }
+
+    .wp-plugin-starter-block-loading {
+        opacity: 0.6;
+    }
+}

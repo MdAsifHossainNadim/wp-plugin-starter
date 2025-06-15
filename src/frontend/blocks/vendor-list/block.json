@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wp-plugin-starter/vendor-list",
+  "title": "Dokan Vendor List",
+  "category": "dokan",
+  "icon": "groups",
+  "description": "Display a customizable list of vendors",
+  "keywords": ["vendor", "dokan", "seller"],
+  "version": "1.0.0",
+  "textdomain": "wp-plugin-starter",
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "attributes": {
+    "numberOfVendors": {
+      "type": "number",
+      "default": 10
+    },
+    "orderBy": {
+      "type": "string",
+      "default": "registered"
+    },
+    "order": {
+      "type": "string",
+      "default": "desc"
+    },
+    "showAvatar": {
+      "type": "boolean",
+      "default": true
+    },
+    "showRating": {
+      "type": "boolean",
+      "default": true
+    },
+    "columnsPerRow": {
+      "type": "number",
+      "default": 3
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.scss",
+  "style": "file:./style.scss"
+}

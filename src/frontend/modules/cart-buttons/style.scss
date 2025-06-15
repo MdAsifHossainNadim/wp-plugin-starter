@@ -1,0 +1,125 @@
+/**
+ * Cart buttons module styles
+ */
+
+.wp-plugin-starter-quantity-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+
+    .wp-plugin-starter-quantity-input {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        overflow: hidden;
+
+        .wp-plugin-starter-quantity-minus,
+        .wp-plugin-starter-quantity-plus {
+            background-color: #f5f5f5;
+            border: none;
+            width: 30px;
+            height: 30px;
+            font-size: 16px;
+            line-height: 1;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #e0e0e0;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .wp-plugin-starter-quantity {
+            width: 50px;
+            height: 30px;
+            border: none;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            text-align: center;
+            padding: 0 5px;
+
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .add_to_cart_button {
+        width: 100%;
+        margin-top: 5px;
+
+        &.wp-plugin-starter-enhanced {
+            &.loading {
+                opacity: 0.7;
+                cursor: wait;
+            }
+
+            &.added {
+                background-color: #4CAF50;
+                border-color: #4CAF50;
+            }
+        }
+    }
+}
+
+// Notices styling
+.woocommerce-notices-wrapper {
+    .woocommerce-success,
+    .woocommerce-error,
+    .woocommerce-info {
+        position: relative;
+        padding: 12px 35px 12px 15px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+
+        .wp-plugin-starter-notice-close {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            opacity: 0.7;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .woocommerce-success {
+        background-color: #dff0d8;
+        border-left: 3px solid #4CAF50;
+        color: #3c763d;
+    }
+
+    .woocommerce-error {
+        background-color: #f8d7da;
+        border-left: 3px solid #dc3545;
+        color: #721c24;
+    }
+
+    .woocommerce-info {
+        background-color: #d9edf7;
+        border-left: 3px solid #5bc0de;
+        color: #31708f;
+    }
+}

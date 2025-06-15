@@ -1,0 +1,95 @@
+.wp-plugin-starter-settings-fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    // Keeping single column layout for all screen sizes
+    // @media (min-width: 768px) {
+    //     grid-template-columns: repeat(2, 1fr);
+    // }
+
+    .wp-plugin-starter-field-container {
+        margin-bottom: 10px;
+        transform-origin: top;
+        transition: all 0.3s ease-in-out;
+
+        // Field animations when appearing and disappearing
+        &.animate-field-enter {
+            animation: fieldFadeIn 0.3s ease-in-out forwards;
+        }
+
+        &.dk-has-error {
+            animation: dk-shake 0.8s;
+
+            .components-base-control__field {
+
+                input, select, textarea {
+                    border-color: #cc1818;
+                    box-shadow: 0 0 0 1px #cc1818;
+                    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+                }
+            }
+
+            .components-toggle-control .components-base-control__field {
+
+                .components-form-toggle {
+                    transition: background-color 0.3s ease;
+
+                    &.is-checked {
+                        background-color: #cc1818;
+                    }
+                }
+            }
+        }
+
+        // Full-width fields
+        &.is-full-width {
+            grid-column: 1 / -1;
+        }
+
+        // Add hover effects
+        .components-base-control__field {
+
+            input, select, textarea {
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+                &:hover:not(:focus) {
+                    border-color: #007cba;
+                }
+
+                &:focus {
+                    border-color: #007cba;
+                    box-shadow: 0 0 0 1px #007cba;
+                }
+            }
+
+            // Button hover effects
+            button {
+                transition: all 0.2s ease;
+
+                &:hover {
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    transform: translateY(-1px);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
+            }
+        }
+    }
+}
+
+// Field animation keyframes
+@keyframes fieldFadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
